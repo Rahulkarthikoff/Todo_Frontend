@@ -4,7 +4,7 @@ const Todo = () => {
     const [todo, setTodo] = useState("");
     const [db, setDb] = useState([])
     function post() {
-        axios.post("http://localhost:5000/api/post", { todo })
+        axios.post("https://todobackend-owv5.onrender.com/api/post", { todo })
             .then(() => {
                 alert("data has been stored")
                 get();
@@ -16,7 +16,7 @@ const Todo = () => {
             })
     }
     function get() {
-        axios.get("http://localhost:5000/api/get")
+        axios.get("https://todobackend-owv5.onrender.com/api/get")
             .then((res) => {
                 setDb(res.data)
             })
@@ -27,7 +27,7 @@ const Todo = () => {
     // console.log(db);
 
     function update(data, id) {
-        axios.put(`http://localhost:5000/api/update/${id}`, { todo: data })
+        axios.put(`https://todobackend-owv5.onrender.com/api/update/${id}`, { todo: data })
             .then(() => {
                 get();
             })
@@ -38,7 +38,7 @@ const Todo = () => {
     }
 
     function del(id) {
-        axios.delete(`http://localhost:5000/api/delete/${id}`)
+        axios.delete(`https://todobackend-owv5.onrender.com/api/delete/${id}`)
             .then(() => {
                 get();
             })
